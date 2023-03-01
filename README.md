@@ -1,4 +1,4 @@
-# bulk-http-check
+# bulk http check
 
 Very fast concurrent check of many HTTP/s URLs.
 

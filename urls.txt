@@ -1,0 +1,13 @@
+https://httpbin.org/delay/10
+https://httpbin.org/status/200
+https://httpbin.org/status/201
+https://httpbin.org/status/202
+https://httpbin.org/status/404
+https://httpbin.org/status/500
+https://httpbin.org/json
+https://asdf2sdcjsdsd.zs/sdf
+https://www.google.com/
+https://www.google.com/1
+https://google.com/1
+https://ifconfig.me/
+

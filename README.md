@@ -65,7 +65,7 @@ core 2 duo is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VP
 | 1            | 5           | 23   |         24 |
 | 10           | 50          |113   |        208 |
 | 100          | 255         |1170  |       1829 |
-| 1000         | 1188        |1743* |       2540 |
+| 1000         | 1188        |1743 *|       2540 |
 | 10000        | 3098 *      |--    |       3458 |
 
 `*` - Errors happened during tests, mostly timeouts because hit bandwidth limit.

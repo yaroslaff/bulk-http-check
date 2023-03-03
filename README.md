@@ -36,8 +36,9 @@ https://httpbin.org/json OK 200 429
 ## Benchmarks
 If specify `-b N`, bulk-http-check will print benchmark results on stderr, like:
 ~~~
-# runs 10 seconds, submitted 557 urls, rate: 55.70/sec
-# runs 20 seconds, submitted 981 urls, rate: 49.05/sec
+# runs 10 seconds, processed 14302, rate: 1430.20/sec
+# runs 20 seconds, processed 49920, rate: 2496.00/sec
+# runs 30 seconds, processed 125943, rate: 4198.10/sec
 ~~~
 
 Option `-x N` to eXit automatically after N seconds.

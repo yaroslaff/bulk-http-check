@@ -85,6 +85,8 @@ func main() {
 
 	flag.Parse()
 
+	println("started")
+
 	// make default client
 	client := &http.Client{
 		Timeout: (time.Second * time.Duration(*timeout))}
@@ -122,7 +124,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "# runs %d seconds, processed %d, rate: %.2f/sec\n", uptime, processed, rate)
 		}
 
-		if int(uptime) >= *exit {
+		if *exit > 0 && int(uptime) >= *exit {
 			os.Exit(0)
 		}
 

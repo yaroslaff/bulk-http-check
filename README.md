@@ -70,6 +70,30 @@ core 2 duo is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VP
 
 `*` - Errors happened during tests, mostly timeouts because hit bandwidth limit.
 
+## Install
+
+### Install via go install
+If you have Golang installed:
+~~~
+go install github.com/yaroslaff/bulk-http-check
+~~~
+
+### Install from repo
+~~~
+git clone https://github.com/yaroslaff/bulk-http-check
+cd bulk-http-check
+go buld
+cp bulk-http-check /usr/local/bin
+~~~
+
+### Download static binary 
+Visit [Latest release](https://github.com/yaroslaff/bulk-http-check/releases/latest) and download `bulk-http-check` from there.
+Then do:
+~~~
+chmod +x bulk-http-check
+cp bulk-http-check /usr/local/bin
+~~~
+
 
 
 ## Command-line options

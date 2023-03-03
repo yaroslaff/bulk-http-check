@@ -49,7 +49,7 @@ https://httpbin.org/json OK 200 429
 ```
 
 ## Benchmarks
-If specify '-b N', bulk-http-check will print benchmark results on stderr, like:
+If specify `-b N`, bulk-http-check will print benchmark results on stderr, like:
 ~~~
 # runs 10 seconds, submitted 557 urls, rate: 55.70/sec
 # runs 20 seconds, submitted 981 urls, rate: 49.05/sec

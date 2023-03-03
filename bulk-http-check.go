@@ -85,8 +85,6 @@ func main() {
 
 	flag.Parse()
 
-	println("started")
-
 	// make default client
 	client := &http.Client{
 		Timeout: (time.Second * time.Duration(*timeout))}

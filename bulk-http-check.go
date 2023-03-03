@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+var mu sync.Mutex
+var processed = 0
+
 func sum(s []int, c chan int) {
 	sum := 0
 	for _, v := range s {
@@ -35,6 +38,10 @@ func checkurl(id int, client *http.Client, ch chan string, useget bool, header s
 		} else {
 			res, err = client.Head(url)
 		}
+
+		mu.Lock()
+		processed++
+		mu.Unlock()
 
 		if err != nil {
 			fmt.Printf("%s ERR %s\n", url, err)
@@ -69,7 +76,12 @@ func main() {
 	var no2 = flag.Bool("1", false, "Disable HTTP/2 support")
 	var header = flag.String("s", "", "Show this header")
 	var useget = flag.Bool("g", false, "use GET method instead of HEAD")
-	timeout := flag.Int("t", 5, "Timeout (5)")
+	timeout := flag.Int("t", 5, "Timeout")
+	var benchmark_period = flag.Int("b", 0, "print benchmark every N seconds")
+	var exit = flag.Int("x", 0, "exit after N seconds")
+
+	var started = time.Now().Unix()
+	var last_printed = started
 
 	flag.Parse()
 
@@ -101,6 +113,19 @@ func main() {
 		if strings.HasPrefix(url, "http") {
 			ch <- url
 		}
+
+		now := time.Now().Unix()
+		uptime := now - started
+		if *benchmark_period > 0 && now >= last_printed+int64(*benchmark_period) {
+			rate := float64(processed) / float64(uptime)
+			last_printed = now
+			fmt.Fprintf(os.Stderr, "# runs %d seconds, processed %d, rate: %.2f/sec\n", uptime, processed, rate)
+		}
+
+		if int(uptime) >= *exit {
+			os.Exit(0)
+		}
+
 	}
 	close(ch)
 

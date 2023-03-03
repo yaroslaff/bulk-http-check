@@ -48,6 +48,28 @@ https://www.google.com/1 OK 404 1562
 https://httpbin.org/json OK 200 429
 ```
 
+## Benchmarks
+If specify '-b N', bulk-http-check will print benchmark results on stderr, like:
+~~~
+# runs 10 seconds, submitted 557 urls, rate: 55.70/sec
+# runs 20 seconds, submitted 981 urls, rate: 49.05/sec
+~~~
+
+My desktop computer and home internet connection
+
+| Connections  | Rate        |
+|---           |---          |
+| 1            | 5    urls/s |
+| 10           | 50   urls/s |
+| 100          | 242  urls/s |
+| 1000         | 1250 urls/s |
+| 10000        | 7850 urls/s |
+
+at 10k connections, I hit bandwidth limit and some tries returned timeout.
+
+
+
+
 ## Command-line options
 
 ```

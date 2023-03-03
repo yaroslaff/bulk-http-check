@@ -17,7 +17,7 @@ then
     exit 1
 fi
 
-for n in 1 10
+for n in 1 10 100 1000 10000
 do
     echo === $n connections ===
     LOG=/tmp/bulk-benchmark-$n.log

@@ -1,6 +1,6 @@
 # bulk http check
 
-Very fast concurrent check of many HTTP/s URLs.
+Very fast concurrent check of many HTTP/s URLs. (Few thousands requests per seconds, depending on hardware and network bandwidth)
 
 ## Usage examples
 `urls.txt` is simple one url per line, e.g.:
@@ -55,18 +55,20 @@ If specify '-b N', bulk-http-check will print benchmark results on stderr, like:
 # runs 20 seconds, submitted 981 urls, rate: 49.05/sec
 ~~~
 
-My desktop computer and home internet connection
+Option `-x N` to eXit automatically after N seconds.
 
-| Connections  | Rate        |
-|---           |---          |
-| 1            | 5    urls/s |
-| 10           | 50   urls/s |
-| 100          | 242  urls/s |
-| 1000         | 1250 urls/s |
-| 10000        | 7850 urls/s |
+core 2 duo is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VPS with 2Gb RAM, AX51-NVMe is dedicated Hetzner server with 8 cores, 16 threads and 64Gb.
 
-at 10k connections, I hit bandwidth limit and some tries returned timeout.
 
+| Connections  | core2duo    | CX11 |  AX51-NVMe |
+|---           |---          |---   |---         |
+| 1            | 5           | 23   |         24 |
+| 10           | 50          |113   |        208 |
+| 100          | 255         |1170  |       1829 |
+| 1000         | 1188        |1743* |       2540 |
+| 10000        | 3098 *      |--    |       3458 |
+
+`*` - Errors happened during tests, mostly timeouts because hit bandwidth limit.
 
 
 

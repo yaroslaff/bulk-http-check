@@ -1,6 +1,6 @@
 # bulk http check
 
-Very fast concurrent check of many HTTP/s URLs. (Few thousands requests per seconds, depending on hardware and network bandwidth)
+Very fast concurrent check of many HTTP/s URLs. (thousands requests per seconds, more then 3 million requests per hour on cheap VPS)
 
 ## Usage examples
 `urls.txt` is simple one url per line, e.g.:
@@ -55,6 +55,11 @@ core 2 duo is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VP
 | 10000        | 3098 *      |--    |       3458 |
 
 `*` - Errors happened during tests, mostly timeouts because hit bandwidth limit.
+
+I checked 15 million URLs on 1MB RAM virtual server (200 connections) in less then 5 hours with final benchmark:
+~~~
+runs 17160 seconds, processed 15276607, rate: 890.25/sec
+~~~
 
 ## Install
 

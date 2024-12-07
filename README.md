@@ -43,16 +43,16 @@ If specify `-b N`, bulk-http-check will print benchmark results on stderr, like:
 
 Option `-x N` to eXit automatically after N seconds.
 
-core 2 duo is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VPS with 2Gb RAM, AX51-NVMe is dedicated Hetzner server with 8 cores, 16 threads and 64Gb.
+Core i5 is my home desktop with 100Mbps Internet. CX11 is cheapest hetzner VPS with 2Gb RAM, AX51-NVMe is dedicated Hetzner server with 8 cores, 16 threads and 64Gb. Numbers in table are requests per second.
 
 
-| Connections  | core2duo    | CX11 |  AX51-NVMe |
-|---           |---          |---   |---         |
-| 1            | 5           | 23   |         24 |
-| 10           | 50          |113   |        208 |
-| 100          | 255         |1170  |       1829 |
-| 1000         | 1188        |1743 *|       2540 |
-| 10000        | 3098 *      |--    |       3458 |
+| Connections  | Core i5-4570 | CX11 |  AX51-NVMe |
+|---           |---           |---   |---         |
+| 1            | 5            | 23   |         24 |
+| 10           | 50           |113   |        208 |
+| 100          | 255          |1170  |       1829 |
+| 1000         | 1188         |1743 *|       2540 |
+| 10000        | 3098 *       |--    |       3458 |
 
 `*` - Errors happened during tests, mostly timeouts because hit bandwidth limit.
 
